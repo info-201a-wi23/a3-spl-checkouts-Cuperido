@@ -3,31 +3,35 @@ title: "A3: SPL Library Checkouts"
 output: html_document
 ---
 
+```{r, echo = FALSE, message = FALSE, warning = FALSE, code = readLines("init.R")}
+# All the global initialization codes are placed in init.R
+```
+
 ### Introduction
 
-An introduction of the data and a description of the trends/books/items you are choosing to analyze (and why!)
+Who was the most popular author in Seattle Public Library? Assuming popular books are books that are checked out at least 50 times a month, We looked into how many those books were and which authors would have been most popular in Seattle Public Library.
+
+The statistics data contains all the rental records from 2005, when the library began collecting, to the latest 2023 regardless of any types, authors, or other info. Based on this data, We expect to be able to track the volume of popular books and trends in popular authors as well.
 
 ### Summary Information
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
+```{r, echo = FALSE, message = FALSE, warning = FALSE, code = readLines("summary.R")}
+```
 
-These will likely be calculated using your DPLYR skills, answering questions such as:
+From 2005 to 2023, the total number of records borrowing popular books over the entire period was `r summary$num_records`. The total unique number of popular books was `r summary$num_books`. Among them, the number of checkouts of the most popular book was `r summary$most_checkout` over the entire period. As for the percentage of book types of popular books, physical books accounted for `r summary$rate_physical` and e-books accounted for `r summary$rate_digital`.
 
-- What is the average number of checkouts for each item?
-- What is the month or year with the most/least checkouts for a book that you're interested in?
-- What is the month or year with the most/least checkouts for ebooks?
-- How has the number of print book checkouts changed over time?
+The total number of authors of the popular books was `r summary$authros`. Books with unknown authors were not included in the statistics. The average duration of popularity was `r summary$duration` years from the publication date. For your reference, the table below summarizes the contents.
 
-Feel free to calculate and report values that you find relevant.
+```{r, echo = FALSE, warning = FALSE, code = readLines("table.R"), results='asis'}
+```
 
 ### The Dataset
 
-- Who collected/published the data?  
-- What are the parameters of the data (dates, number of checkouts, kinds of books, etc.)?
-- How was the data collected or generated?  
-- Why was the data collected?  
-- What, if any, ethical questions do you need to consider when working with this data?  
-- What are possible limitations or problems with this data?   (at least 200 words)
+The dataset has been collected by Seattle Public Library from 2005 to the present. The full data set includes columns, such as book material category (physical/digital), checkout type, material type (e.g., book, ebook, audio, video, etc), title, creator(author), subjects, publisher, checkout year and month, ISBN, and publication year.
+
+For this statistic, we generated a small custom dataset from the original dataset. Assuming popular books are books that are checked out equal to or more than 50 times a month, we only included such books for all time periods. The columns also only included material category, material type, checkout year and month, author, title, and publication year. The data generation was conducted by the query system of Seattle Open Data (https://data.seattle.gov/Community/Checkouts-by-Title/tmmm-ytt6/explore), and we exported and downloaded the records through a CSV file on February 17, 2023.
+
+We chose this custom dataset to share trends in popular books and authors over years. However, most of the records don't include the correct ISBN codes. For this reason, there is a limitation to distinguish the same book. We used most data for raw status, but author and publication year columns have been reorganized due to inconsistent formats. The author's name has been organized with the `FirstName Lastname` format, and books with unknown authors were not included in the statistics. For the publication year, we chose the year that first appeared if they have ranges. 
 
 
 ### First Trends Over Time Chart
@@ -45,9 +49,9 @@ In your .Rmd file, make sure to describe why you included the chart, and what pa
 
 When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
 
-Here's an example of how to run an R script inside an RMarkdown file:
+Here's an example of how to run an R script inside an RMarkdow
 
-``````{r, echo = FALSE, warning = FALSE, code = readLines("chart1_example.R")}
+```{r, echo = FALSE, warning = FALSE, fig.width = 10, fig.height = 6, code = readLines("chart1.R")}
 ```
 
 ### Second Trends Over Time Chart
@@ -67,7 +71,7 @@ When we say "clear" or "human readable" titles and labels, that means that you s
 
 Here's an example of how to run an R script inside an RMarkdown file:
 
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+```{r, echo = FALSE, warning = FALSE, fig.width = 10, fig.height = 6, code = readLines("chart2.R")}
 ```
 
 ### Your Choice
@@ -75,12 +79,12 @@ Here's an example of how to run an R script inside an RMarkdown file:
 The last chart is up to you. It could be a line plot, scatter plot, histogram, bar plot, stacked bar plot, and more. Here are some requirements to help guide your design:
 
 - You must have clear x and y axis labels
-- The chart needs a clear title 
+- The chart needs a clear title.
 - You need a legend for your different line colors and a clear legend title
 
 Here's an example of how to run an R script inside an RMarkdown file:
 
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+```{r, echo = FALSE, warning = FALSE, fig.width = 10, fig.height = 6, code = readLines("chart3.R")}
 ```
 
 
