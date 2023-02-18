@@ -24,14 +24,14 @@ np_data$PublicationYear <- as.numeric(str_extract(as.character(np_data$Publicati
 organize_name <- function(full_name) {
   name_words <- str_extract_all(full_name, "(\\w[^,]+)", simplify = TRUE)
   cnt_words <- length(name_words)
-  
-  if(cnt_words == 0) {
+
+  if (cnt_words == 0) {
     # If there is no name, return NULL
     return("")
-  } else if(cnt_words == 1) {
+  } else if (cnt_words == 1) {
     # If there is no comma, just return in that order (First Name + Last Name)
     return(name_words[1])
-  } else if(cnt_words >= 2) {
+  } else if (cnt_words >= 2) {
     # If there is commas, return in reverse order (Last Name, First Name => First Name + Last Name)
     return(paste(name_words[2], name_words[1]))
   }
@@ -40,6 +40,5 @@ organize_name <- function(full_name) {
 np_data$Creator <- as.character(lapply(np_data$Creator, organize_name))
 
 # Add a lifespan column
-np_data <- np_data %>% 
+np_data <- np_data %>%
   mutate(Lifespan = CheckoutYear - PublicationYear)
-

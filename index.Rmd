@@ -1,5 +1,5 @@
 ---
-title: "A3: SPL Library Checkouts"
+title: "A3: SPL Library Checkouts for Popular Books"
 output: html_document
 ---
 
@@ -7,84 +7,72 @@ output: html_document
 # All the global initialization codes are placed in init.R
 ```
 
+
 ### Introduction
 
-Who was the most popular author in Seattle Public Library? Assuming popular books are books that are checked out at least 50 times a month, We looked into how many those books were and which authors would have been most popular in Seattle Public Library.
+Who was the most popular author in Seattle Public Library? Assuming **popular books are books that are checked out at least 50 times a month**, We looked into how many those books were and which authors would have been most popular in Seattle Public Library.
 
 The statistics data contains all the rental records from 2005, when the library began collecting, to the latest 2023 regardless of any types, authors, or other info. Based on this data, We expect to be able to track the volume of popular books and trends in popular authors as well.
+
 
 ### Summary Information
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, code = readLines("summary.R")}
 ```
 
-From 2005 to 2023, the total number of records borrowing popular books over the entire period was `r summary$num_records`. The total unique number of popular books was `r summary$num_books`. Among them, the number of checkouts of the most popular book was `r summary$most_checkout` over the entire period. As for the percentage of book types of popular books, physical books accounted for `r summary$rate_physical` and e-books accounted for `r summary$rate_digital`.
+From 2005 to 2023, the total number of checkout records for popular books over the entire period was `r summary$num_records`. The total unique number of popular books was `r summary$num_books`. Among them, the number of checkouts of the most popular book was `r summary$most_checkout` over the entire period. As for the percentage of book types of popular books, physical books accounted for `r summary$rate_physical` and e-books accounted for `r summary$rate_digital`.
 
-The total number of authors of the popular books was `r summary$authros`. Books with unknown authors were not included in the statistics. The average duration of popularity was `r summary$duration` years from the publication date. For your reference, the table below summarizes the contents.
+The total number of authors of popular books was `r summary$authros`. Books with unknown authors were not included in the statistics. The average duration of popularity was `r summary$duration` years from the publication date. For your reference, the table below summarizes the contents.
 
 ```{r, echo = FALSE, warning = FALSE, code = readLines("table.R"), results='asis'}
 ```
 
+
 ### The Dataset
 
-The dataset has been collected by Seattle Public Library from 2005 to the present. The full data set includes columns, such as book material category (physical/digital), checkout type, material type (e.g., book, ebook, audio, video, etc), title, creator(author), subjects, publisher, checkout year and month, ISBN, and publication year.
+The statistics data are offered by Seattle Public Library. The data is based on their check-out records from 2005 to the present. For this assignment, we generated a small custom dataset with some filters from their original dataset. Assuming popular books are books that are checked out equal to or more than 50 times a month, we only included such books for all time periods. The total number of observations is 159,536.
 
-For this statistic, we generated a small custom dataset from the original dataset. Assuming popular books are books that are checked out equal to or more than 50 times a month, we only included such books for all time periods. The columns also only included material category, material type, checkout year and month, author, title, and publication year. The data generation was conducted by the query system of Seattle Open Data (https://data.seattle.gov/Community/Checkouts-by-Title/tmmm-ytt6/explore), and we exported and downloaded the records through a CSV file on February 17, 2023.
+Also, the eight columns were included in this small custom dataset, such as material category, material type, checkout year and month, the number of checkouts, author, title, and publication year. The data generation was conducted by the query system of Seattle Open Data (<https://data.seattle.gov/Community/Checkouts-by-Title/tmmm-ytt6/explore>), and we exported and downloaded the records through a CSV file on February 17, 2023.
 
-We chose this custom dataset to share trends in popular books and authors over years. However, most of the records don't include the correct ISBN codes. For this reason, there is a limitation to distinguish the same book. We used most data for raw status, but author and publication year columns have been reorganized due to inconsistent formats. The author's name has been organized with the `FirstName Lastname` format, and books with unknown authors were not included in the statistics. For the publication year, we chose the year that first appeared if they have ranges. 
+We chose this custom dataset to share trends in popular books and authors over years. However, most of the records didn't include the correct ISBN codes, so there was a limitation to distinguish the same book. We used most data for raw status, but author and publication year columns have been reorganized due to inconsistent formats. The author's name has been organized with the `FirstName Lastname` format, and books with unknown authors were not included in the statistics. For the publication year, we chose the year that first appeared if they have ranges.
 
 
-### First Trends Over Time Chart
+### Chart 1. The total number of popular books by year
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
-
-The first chart that you will create and include will show the trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdow
+This graph shows how many books were popular a year in the Seattle Public Library. Here, a popular book represents a book that is borrowed at least 50 times a month. If it became a hit in at least one month out of the year, it was included in the statistics. Also, if a book had a hit for more than two years or two book types, it was included in both years or types. The 2023 year counted only through February.
 
 ```{r, echo = FALSE, warning = FALSE, fig.width = 10, fig.height = 6, code = readLines("chart1.R")}
 ```
 
-### Second Trends Over Time Chart
+On average, we can see that approximately 1,500~2,000 books are read as popular books a year. Since 2010, it shows that e-books started to become popular. Starting to rise gradually, and since 2019, the number of digital popular books has become more than the number of physical popular books. The reason seems that in-person rentals were reduced due to the Covid-19 pandemic.
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+Interestingly, it can be seen that even though the aftermath of the Covid-19 pandemic has decreased a lot, digital books still have much more hit physical books. Based on this chart, we can see that people's reading style and publication practice is gradually changing. It is also a great fact that the number of popular books has been increasing over years rather than diminishing.
 
-The second chart that you will create and include will show another trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
 
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
+### Chart 2. The average duration of popularity
 
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
+This chart shows how many checkouts occur according to elapsed year after the publication of books. For example, if a book published in 2010 became a hit in 2015, it was included in the 5-year of the x-axis in the chart below. The chart includes from the same year up to 10 years. (so please note that it is not 10+) For the publication year, we chose the year that first appeared if they have ranges.
 
 ```{r, echo = FALSE, warning = FALSE, fig.width = 10, fig.height = 6, code = readLines("chart2.R")}
 ```
 
-### Your Choice
+The popular books started gaining popularity in the same year, and they usually turned out to be the biggest hit after a year. It was likely because it took time to spread prestige virally. Then, from 2 years after the publication, the popularity gradually decreased until the 4th year. After 5th years, they started to draw calm patterns like steady sellers.
 
-The last chart is up to you. It could be a line plot, scatter plot, histogram, bar plot, stacked bar plot, and more. Here are some requirements to help guide your design:
+Based on this, it can be seen that popular books are usually read within 4 years of publication. The library might be able to get inspiration on how many copies of popular books to keep depending on the period, and also publishers might be able to know that continuous readership after their second year is most important to be steady sellers.
 
-- You must have clear x and y axis labels
-- The chart needs a clear title.
-- You need a legend for your different line colors and a clear legend title
 
-Here's an example of how to run an R script inside an RMarkdown file:
+### Chart 3. Top 10 most popular authors
+
+This chart shows the top 10 authors of the most popular books by a cumulative number of checkouts over the entire period. The author's name has been organized with the `FirstName Lastname` format, and books with unknown authors were not included in the statistics. If an author wrote both a physical and digital, it was counted separately.
 
 ```{r, echo = FALSE, warning = FALSE, fig.width = 10, fig.height = 6, code = readLines("chart3.R")}
 ```
 
+The result shows 6 authors of digital books in contrast to 4 authors of physical books. By recalling that this chart includes cumulative checkouts over the entire period from 2005 and the number of digital books surpassed physical books only after 2019 in the first chart, it can be seen that the accessibility of digital books is very excellent.
+
+Also, based on the result, we can get inspiration about what type of books were most popular. The first ranker, Mo Willems, is a writer of children’s books, like An Elephant and Piggie Book. Tedd Arnold, Dav Pilkey, and Dr. Seuss are also famous children’s book writers. In a result, 4 authors out of the top 6 were for children’s books.
+
+J. K. Rowling is a writer of the Harry Potter series. Interestingly, although the chart doesn’t show it, her rank for the physical books did not even reach the top 50 whereas her Harry Potter series was 3rd place with 53,888 checkouts in the digital books! The total checkouts of her physical book were even less than 1/3 of her digital books. It is also the part where we can see how quickly and greatly ebooks have been growing. 
+
+However, we should consider that the statistics data is from 2005 to 2023 whereas the Harry Potter series was published from 1997 to 2007. According to the second chart above, the active lifespan of popular books was within 4 years of publication. This fact also gives us an insight that a digital book is becoming a means that can keep us in touch with masterpieces for a long time.
 

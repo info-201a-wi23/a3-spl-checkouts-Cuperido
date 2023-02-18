@@ -6,12 +6,12 @@ library(knitr)
 # Definition of NAICS codes.
 df <- data.frame(
   "Information" = c(
-    "The total number of records borrowing popular books over the entire period",
+    "The total number of checkout records for popular books over the entire period",
     "The total unique number of the popular books",
     "The number of checkouts of the most popular book over the entire period",
     "Checkout rate between physical vs digital books",
     "The total number of authors of the popular books",
-    "The average duration of popularity was"
+    "The average duration of popularity"
   ),
   "Results" = c(
     paste(summary$num_records, "records"),
