@@ -70,9 +70,9 @@ This chart shows the top 10 authors of the most popular books by a cumulative nu
 
 The result shows 6 authors of digital books in contrast to 4 authors of physical books. By recalling that this chart includes cumulative checkouts over the entire period from 2005 and the number of digital books surpassed physical books only after 2019 in the first chart, it can be seen that the accessibility of digital books is very excellent.
 
-Also, based on the result, we can get inspiration about what type of books were most popular. The first ranker, Mo Willems, is a writer of children’s books, like An Elephant and Piggie Book. Tedd Arnold, Dav Pilkey, and Dr. Seuss are also famous children’s book writers. In a result, 4 authors out of the top 6 were for children’s books.
+Also, based on the result, we can get inspiration about what type of books were most popular. The first ranker, Mo Willems, is the writer of children’s books, like An Elephant and Piggie Book. Tedd Arnold, Dav Pilkey, and Dr. Seuss are also famous children’s book writers. In a result, 4 authors out of the top 6 were for children’s books.
 
-J. K. Rowling is a writer of the Harry Potter series. Interestingly, although the chart doesn’t show it, her rank for the physical books did not even reach the top 50 whereas her Harry Potter series was 3rd place with 53,888 checkouts in the digital books! The total checkouts of her physical book were even less than 1/3 of her digital books. It is also the part where we can see how quickly and greatly ebooks have been growing. 
+J. K. Rowling is the writer of the Harry Potter series. Interestingly, although the chart doesn’t show it, her rank for the physical books did not even reach the top 50 whereas her Harry Potter series was 3rd place with 53,888 checkouts in the digital books! The total checkouts of her physical book were even less than 1/3 of her digital books. It is also the part where we can see how quickly and greatly ebooks have been growing. 
 
 However, we should consider that the statistics data is from 2005 to 2023 whereas the Harry Potter series was published from 1997 to 2007. According to the second chart above, the active lifespan of popular books was within 4 years of publication. This fact also gives us an insight that a digital book is becoming a means that can keep us in touch with masterpieces for a long time.
 
