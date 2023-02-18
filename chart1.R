@@ -53,8 +53,9 @@ ggplot(df) +
     breaks = seq(2000, 2025, 1)
   ) +
   scale_y_continuous(
-    breaks = seq(0, 12000, 1000)
+    breaks = seq(0, 2000, 200)
   ) + 
   theme(
     legend.position = c(0.06, 0.89)
   )
+

@@ -36,6 +36,8 @@ Also, the eight columns were included in this small custom dataset, such as mate
 
 We chose this custom dataset to share trends in popular books and authors over years. However, most of the records didn't include the correct ISBN codes, so there was a limitation to distinguish the same book. We used most data for raw status, but author and publication year columns have been reorganized due to inconsistent formats. The author's name has been organized with the `FirstName Lastname` format, and books with unknown authors were not included in the statistics. For the publication year, we chose the year that first appeared if they have ranges.
 
+Also, due to our system constraints, we only counted months when books were popular. For instance, if a popular book had less than 50 checkouts in some months, those months didn't be aggregated as the total checkouts. Therefore, the total checkouts represent approximate values and can be less than their exact actual checkouts.
+
 
 ### Chart 1. The total number of popular books by year
 
