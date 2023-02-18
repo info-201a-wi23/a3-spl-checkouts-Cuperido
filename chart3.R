@@ -9,7 +9,7 @@ options(scipen = 999)
 # Duplicate np_data to avoid manipulating the original data frame.
 df <- np_data
 
-# Group by year and book type.
+# Group by creator and book type.
 df <- df %>%
   select(UsageClass, Creator, Checkouts) %>%
   filter(Creator != "") %>%
