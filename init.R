@@ -8,10 +8,11 @@ library(stringr)
 options(scipen = 999)
 
 # Load csv data and combine them.
-# Data source: https://canvas.uw.edu/courses/1613223/files/102089304/download?download_frd=1
-
+# Data source: 
+# https://canvas.uw.edu/courses/1613223/files/102089304/download?download_frd=1
+# https://data.seattle.gov/Community/Checkouts-by-Title/tmmm-ytt6/explore
 np_data <- read.csv(
-  paste0("D:\\Study\\[2023.1Q.UW - INFO 201] Foundational Skills for Data Science\\Assignment\\3 - SPL Library\\50-Checkouts-SPL-Data.csv"),
+  paste0("D:\\Study\\[2023.1Q.UW - INFO 201] Foundational Skills for Data Science\\Assignment\\3 - SPL Library\\Workspace\\50-Checkouts-SPL-Data.csv"),
   stringsAsFactors = FALSE,
 )
 
