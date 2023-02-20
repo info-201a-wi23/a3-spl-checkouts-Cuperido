@@ -12,7 +12,7 @@ options(scipen = 999)
 # https://canvas.uw.edu/courses/1613223/files/102089304/download?download_frd=1
 # https://data.seattle.gov/Community/Checkouts-by-Title/tmmm-ytt6/explore
 np_data <- read.csv(
-  paste0("D:\\Study\\[2023.1Q.UW - INFO 201] Foundational Skills for Data Science\\Assignment\\3 - SPL Library\\Workspace\\50-A-Month-Checkouts-SPL-Data.csv"),
+  "https://github.com/info-201a-wi23/a3-spl-checkouts-Cuperido/raw/main/50-A-Month-Checkouts-SPL-Data.csv",
   stringsAsFactors = FALSE,
 )
 
@@ -27,7 +27,7 @@ organize_name <- function(full_name) {
   cnt_words <- length(name_words)
 
   if (cnt_words == 0) {
-    # If there is no name, return NULL
+    # If there is no name, just return an empty string
     return("")
   } else if (cnt_words == 1) {
     # If there is no comma, just return in that order (First Name + Last Name)
@@ -43,3 +43,4 @@ np_data$Creator <- as.character(lapply(np_data$Creator, organize_name))
 # Add a lifespan column
 np_data <- np_data %>%
   mutate(Lifespan = CheckoutYear - PublicationYear)
+

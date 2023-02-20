@@ -3,9 +3,6 @@
 # Load a chart library
 library(ggplot2)
 
-# Turn off scientific notation
-options(scipen = 999)
-
 # Duplicate np_data to avoid manipulating the original data frame.
 df <- np_data
 
